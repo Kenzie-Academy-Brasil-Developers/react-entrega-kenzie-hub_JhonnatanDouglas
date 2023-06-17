@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import { StyledParagraph, StyledTittleH1 } from '../../../styles/typography'
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { api } from "../../services/api"
 import { StyledUserContainer } from './styles'
-import { useNavigate } from 'react-router-dom'
-import { api } from '../../../services/api'
+import { StyledParagraph, StyledTittleH1 } from "../../styles/typography"
 
 export const StyledUserHeader = () => {
   const isLogged = JSON.parse(localStorage.getItem('@LOGIN'))

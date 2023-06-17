@@ -3,17 +3,15 @@ import styled from 'styled-components'
 export const StyledContainerLogin = styled.div`
   width: 100%;
   max-width: 23.125rem;
-  height: 100vh;
   margin: auto;
-  padding: 4.375rem 0.75rem 0rem;
+  padding: 4.375rem 0.75rem 1rem;
 `
 
 export const StyledContainerRegister = styled.div`
   width: 100%;
   max-width: 23.125rem;
-  height: 100vh;
   margin: auto;
-  padding: 2.5rem 0.75rem 0rem;
+  padding: 1.875rem 0.75rem 1rem;
 `
 
 export const StyledNavContainer = styled.nav`

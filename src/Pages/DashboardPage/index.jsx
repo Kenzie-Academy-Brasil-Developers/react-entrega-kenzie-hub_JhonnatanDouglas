@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import { HeaderDefault } from '../../Components/Headers/HeaderDefault'
-import { StyledUserHeader } from '../../Components/Headers/UserHeader'
 import {
   StyledContainer,
   StyledHeaderContainer,
   StyledNavContainer,
 } from '../../styles/grid'
-import { EmptyUserList } from '../../Components/EmptyUserList'
-import { CardsList } from '../../Components/CardsUserList'
+import { HeaderDefault } from '../../components/HeaderDefault'
+import { StyledUserHeader } from '../../components/HeaderUser'
+import { EmptyUserList } from '../../components/EmptyUserList'
+import { CardsList } from '../../components/CardsUserList'
+
 
 export const DashboardPage = () => {
   const [cardList, setCardList] = useState(false)

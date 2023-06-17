@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledContainerLogin } from '../../styles/grid'
-import { HeaderLogin } from '../../Components/Headers/HeaderLogin'
-import { StyledLoginForm } from '../../Components/FormLogin'
+import { HeaderLogin } from '../../components/HeaderLogin'
+import { StyledLoginForm } from '../../components/FormLogin'
 
 export const LoginPage = () => {
   return (
