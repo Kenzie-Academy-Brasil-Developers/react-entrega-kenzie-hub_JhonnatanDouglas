@@ -4,7 +4,7 @@ export const StyledUserContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 35px 0rem;
+  margin: 2.1875rem 0rem;
   gap: 0.625rem;
 
   > h1 {

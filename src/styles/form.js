@@ -27,9 +27,9 @@ export const InputSettings = css`
   font-size: var(--font-size-5);
   color: var(--color-grey-0);
 
+  width: 100%;
   height: 3rem;
   padding: 0.625rem;
-  width: 100%;
 
   background-color: var(--color-grey-2);
   border: 0.125rem solid var(--color-grey-2);
@@ -83,7 +83,6 @@ export const StyledTextArea = styled.textarea`
   border-radius: var(--border-radius-1);
 
   padding: 0.75rem;
-  max-width: 17.0625rem;
 
   &::placeholder {
     color: var(--color-grey-1);

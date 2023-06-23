@@ -1,32 +1,38 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const StyledCard = styled.li`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  > button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.375rem;
 
-  height: 3rem;
-  margin: 0.75rem 0rem;
-  padding: 0rem 0.75rem;
+    width: 100%;
+    height: 100%;
+    max-height: 3rem;
+    margin: 0rem 0rem;
+    padding: 1.5rem 1.25rem;
+    background-color: var(--color-grey-4);
+    border: 0.125rem solid var(--color-grey-4);
+    border-radius: var(--border-radius-1);
 
-  background-color: var(--color-grey-3);
-  border: 0.125rem solid var(--color-grey-3);
-  border-radius: var(--border-radius-1);
+    transition: 0.7s;
+    cursor: pointer;
 
-  transition: 0.7s;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-grey-2);
-    border: 0.125rem solid var(--color-grey-2);
+    &:hover {
+      background-color: var(--color-grey-2);
+      border: 0.125rem solid var(--color-grey-2);
+    }
   }
 
-  h3 {
+  > button > h3 {
+    text-align: start;
     color: var(--color-grey-0);
   }
 
-  p {
+  > button > p {
+    text-align: end;
     color: var(--color-grey-1);
   }
 `

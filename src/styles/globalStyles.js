@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
   :root {
@@ -41,5 +41,16 @@ export const GlobalStyles = createGlobalStyle`
 
     --border-radius-1: 0.25rem;
     --border-radius-0: 0.125rem;
+  }
+
+  ul::-webkit-scrollbar,
+  textarea::-webkit-scrollbar {
+    height: 0.4375rem;
+    width: 0.4375rem;
+  }
+  
+  ul::-webkit-scrollbar-thumb,
+  textarea::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
   }
 `

@@ -6,6 +6,35 @@ export const defaultSettings = css`
   text-decoration: none;
   text-transform: none;
 
+  ${({ colorText }) => {
+    switch (colorText) {
+      case 'dark-2':
+        return css`
+          color: var(--color-grey-4);
+        `
+      case 'dark-1':
+        return css`
+          color: var(--color-grey-3);
+        `
+      case 'dark-0':
+        return css`
+          color: var(--color-grey-2);
+        `
+      case 'white-2':
+        return css`
+          color: var(--color-grey-1);
+        `
+      case 'white-1':
+        return css`
+          color: var(--color-grey-0);
+        `
+      case 'white-0':
+        return css`
+          color: var(--color-white);
+        `
+    }
+  }}
+
   ${({ sizeText }) => {
     switch (sizeText) {
       case 'xl':
@@ -40,6 +69,10 @@ export const defaultSettings = css`
       case 'italic':
         return css`
           font-style: italic;
+        `
+      case 'default':
+        return css`
+          font-weight: var(--font-weight-2);
         `
     }
   }}

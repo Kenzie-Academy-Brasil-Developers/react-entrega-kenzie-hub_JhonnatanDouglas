@@ -1,22 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { userContext } from '../../../providers/userProvider'
 import { useForm } from 'react-hook-form'
 import { registerSchema } from './registerSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { StyledPasswordInput } from '../../PasswordInput'
 import { StyledFormRegister } from './styles'
-import { StyledParagraph, StyledTittleH1 } from '../../styles/typography'
-import { StyledInputLabel } from '../Input'
-import { StyledButton } from '../../styles/buttons'
-import { StyledInputTextArea } from '../TextArea'
-import { StyledInputSelect } from '../Select'
-import { api } from '../../services/api'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import { useNavigate } from 'react-router-dom'
-import { StyledPasswordInput } from '../PasswordInput'
+import { StyledParagraph, StyledTittleH1 } from '../../../styles/typography'
+import { StyledInputLabel } from '../../Input'
+import { StyledButton } from '../../../styles/buttons'
+import { StyledInputTextArea } from '../../TextArea'
+import { StyledInputSelect } from '../../Select'
 
 export const RegisterForm = () => {
-  const [buttonDisabled, setButtonDisabled] = useState(false)
-  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -25,50 +20,7 @@ export const RegisterForm = () => {
     resolver: zodResolver(registerSchema),
   })
 
-  const userRegister = async (formData) => {
-    try {
-      setButtonDisabled(true)
-      const body = {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-        bio: formData.bio,
-        contact: formData.contact,
-        course_module: formData.course_module,
-      }
-      const { data } = await api.post('/users', body)
-
-      toast.success('Conta criada com sucesso!', {
-        position: 'top-right',
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      })
-
-      setTimeout(() => {
-        navigate('/')
-      }, 2500)
-    } catch (error) {
-      console.error(error)
-
-      toast.error('Ops! Algo deu errado', {
-        position: 'top-right',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      })
-    } finally {
-      setButtonDisabled(false)
-    }
-  }
+  const { userRegister, buttonDisabled } = useContext(userContext)
 
   const submit = (formData) => {
     userRegister(formData)
@@ -94,7 +46,7 @@ export const RegisterForm = () => {
           type='email'
           register={register('email')}
           placeholder='Digite seu email'
-          autoComplete='off'
+          autoComplete='email'
           error={errors.email}
         />
 
@@ -103,7 +55,7 @@ export const RegisterForm = () => {
           type='password'
           register={register('password')}
           placeholder='Digite aqui sua senha'
-          autoComplete='off'
+          autoComplete='new-password'
           error={errors.password}
         />
 
@@ -112,6 +64,7 @@ export const RegisterForm = () => {
           type='password'
           register={register('confirm')}
           placeholder='Digite novamente sua senha'
+          autoComplete='new-password'
           error={errors.confirm}
         />
 
@@ -142,35 +95,18 @@ export const RegisterForm = () => {
         {buttonDisabled ? (
           <StyledButton
             type='submit'
-            buttonstyled='negative'
-            buttonsize='max-lg'
+            coloring='negative'
+            largeness='max-lg'
             disabled={buttonDisabled}
           >
             Carregando...
           </StyledButton>
         ) : (
-          <StyledButton
-            type='submit'
-            buttonstyled='primary'
-            buttonsize='max-lg'
-          >
+          <StyledButton type='submit' coloring='primary' largeness='max-lg'>
             Cadastrar
           </StyledButton>
         )}
       </StyledFormRegister>
-
-      <ToastContainer
-        position='top-right'
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme='light'
-      />
     </>
   )
 }

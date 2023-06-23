@@ -11,6 +11,7 @@ export const StyledPasswordInput = ({
   placeholder,
   error,
   register,
+  autoComplete,
 }) => {
   const [showPassword, setShowPassword] = useState(false)
 
@@ -26,14 +27,15 @@ export const StyledPasswordInput = ({
           type={showPassword ? 'text' : type}
           id={id}
           placeholder={placeholder}
+          autoComplete={autoComplete}
           {...register}
         />
         {showPassword ? (
-          <button type='button' onClick={changeView}>
+          <button type='button' onClick={() => changeView()}>
             <AiFillEyeInvisible />
           </button>
         ) : (
-          <button type='button' onClick={changeView}>
+          <button type='button' onClick={() => changeView()}>
             <AiFillEye />
           </button>
         )}

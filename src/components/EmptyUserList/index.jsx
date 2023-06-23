@@ -5,10 +5,10 @@ export const EmptyUserList = () => {
   return (
     <StyledEmptyList>
       <StyledTittleH1 sizeText='xl' emphasis='bold'>
-        Que pena! Estamos em desenvolvimento :&#40;
+        Ops! Parece que não há nenhuma tecnologia cadastrada ainda :&#40;
       </StyledTittleH1>
       <StyledParagraph sizeText='sm'>
-        Nossa aplicação está em desenvolvimento, em breve teremos novidades
+        Clique no "+" e adicione uma tecnologia à lista!
       </StyledParagraph>
     </StyledEmptyList>
   )

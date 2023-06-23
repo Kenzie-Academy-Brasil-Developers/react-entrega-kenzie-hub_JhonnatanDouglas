@@ -1,17 +1,20 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { EmptyUserList } from '../../components/EmptyUserList'
+import { HeaderDefault } from '../../components/Headers/HeaderDefault'
 import {
-  StyledContainer,
+  StyledMainContainer,
   StyledHeaderContainer,
   StyledNavContainer,
 } from '../../styles/grid'
-import { HeaderDefault } from '../../components/HeaderDefault'
-import { StyledUserHeader } from '../../components/HeaderUser'
-import { EmptyUserList } from '../../components/EmptyUserList'
-import { CardsList } from '../../components/CardsUserList'
-
+import { StyledUserHeader } from '../../components/Headers/HeaderUser'
+import { StyledCardList } from '../../components/CardListContainer'
+import { StyledTechHeader } from '../../components/Headers/TechHeader'
+import { StyledRegisterTechModal } from '../../components/Modals/RegisterTechnologyModal'
+import { StyledDetailsTechModal } from '../../components/Modals/TechnologyDetailsModal'
+import { userContext } from '../../providers/userProvider'
 
 export const DashboardPage = () => {
-  const [cardList, setCardList] = useState(false)
+  const { techData } = useContext(userContext)
 
   return (
     <>
@@ -25,18 +28,14 @@ export const DashboardPage = () => {
         </div>
       </StyledHeaderContainer>
 
-      <StyledContainer>
-        {cardList ? (
-          <ul>
-            <CardsList title='Modulo' level='2' />
-            <CardsList title='Modulo' level='4' />
-            <CardsList title='Modulo' level='5' />
-            <CardsList title='Modulo' level='1' />
-          </ul>
-        ) : (
-          <EmptyUserList />
-        )}
-      </StyledContainer>
+      <StyledMainContainer>
+        <div>
+          <StyledTechHeader />
+          {techData?.length === 0 ? <EmptyUserList /> : <StyledCardList />}
+        </div>
+      </StyledMainContainer>
+      <StyledDetailsTechModal />
+      <StyledRegisterTechModal />
     </>
   )
 }

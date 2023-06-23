@@ -9,6 +9,7 @@ export const StyledInputLabel = ({
   placeholder,
   error,
   register,
+  autoComplete,
 }) => {
   return (
     <StyledFieldBox>
@@ -17,6 +18,7 @@ export const StyledInputLabel = ({
         type={type}
         id={id}
         placeholder={placeholder}
+        autoComplete={autoComplete}
         {...register}
       />
       {error ? (

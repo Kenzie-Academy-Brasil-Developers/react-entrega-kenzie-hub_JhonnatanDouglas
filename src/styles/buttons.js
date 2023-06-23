@@ -19,8 +19,8 @@ const ButtonSettings = css`
     cursor: not-allowed;
   }
 
-  ${({ buttonstyled }) => {
-    switch (buttonstyled) {
+  ${({ coloring }) => {
+    switch (coloring) {
       case 'primary':
         return css`
           color: var(--color-white);
@@ -51,6 +51,12 @@ const ButtonSettings = css`
             border: 0.0625rem solid var(--color-grey-2);
           }
         `
+      case 'disabled-negative':
+        return css`
+          color: var(--color-grey-0);
+          background-color: var(--color-grey-2);
+          border: 0.0625rem solid var(--color-grey-2);
+        `
 
       case 'default':
         return css`
@@ -66,49 +72,8 @@ const ButtonSettings = css`
     }
   }}
 
-  ${({ buttonfont }) => {
-    switch (buttonfont) {
-      case 'xl':
-        return css`
-          font-size: var(--font-size-6);
-        `
-      case 'xl-bold':
-        return css`
-          font-size: var(--font-size-6);
-          font-weight: var(--font-weight-2);
-        `
-      case 'lg':
-        return css`
-          font-size: var(--font-size-5);
-        `
-      case 'lg-bold':
-        return css`
-          font-size: var(--font-size-5);
-          font-weight: var(--font-weight-2);
-        `
-      case 'md':
-        return css`
-          font-size: var(--font-size-4);
-        `
-      case 'md-bold':
-        return css`
-          font-size: var(--font-size-4);
-          font-weight: var(--font-weight-2);
-        `
-      case 'sm':
-        return css`
-          font-size: var(--font-size-3);
-        `
-      case 'sm-bold':
-        return css`
-          font-size: var(--font-size-3);
-          font-weight: var(--font-weight-2);
-        `
-    }
-  }}
-
-  ${({ buttonsize }) => {
-    switch (buttonsize) {
+  ${({ largeness }) => {
+    switch (largeness) {
       case 'max-lg':
         return css`
           width: 100%;
@@ -133,6 +98,7 @@ const ButtonSettings = css`
         return css`
           font-size: var(--font-size-8);
           padding: 0rem 0.5rem 0.125rem;
+          width: 2rem;
           height: 2rem;
         `
     }
