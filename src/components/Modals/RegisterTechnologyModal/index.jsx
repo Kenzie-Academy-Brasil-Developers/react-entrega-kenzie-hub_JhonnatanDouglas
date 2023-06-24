@@ -17,6 +17,7 @@ export const StyledRegisterTechModal = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: zodResolver(modalSchema),
   })
@@ -31,6 +32,7 @@ export const StyledRegisterTechModal = () => {
   const { addTech } = useContext(techContext)
 
   const submit = (formData) => {
+    reset()
     addTech(formData)
   }
 

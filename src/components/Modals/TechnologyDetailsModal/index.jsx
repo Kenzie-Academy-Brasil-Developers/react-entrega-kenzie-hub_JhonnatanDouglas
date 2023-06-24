@@ -17,6 +17,7 @@ export const StyledDetailsTechModal = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: zodResolver(modalSchema),
   })
@@ -43,12 +44,14 @@ export const StyledDetailsTechModal = () => {
   const submit = (formData) => {
     const { title, status } = formData
     const formTitle = title.trim()
-
+    
     const techInfo = {
       title: formTitle,
       status: status,
     }
 
+    reset()
+    
     if (nameButton === 'save-button') {
       updateTech(techInfo)
     } else if (nameButton === 'delete-button') {
@@ -87,6 +90,7 @@ export const StyledDetailsTechModal = () => {
               register={register('title')}
               placeholder='Material UI (nome da tecnologia)'
               error={errors.title}
+            
             />
 
             <StyledModalInputSelect
