@@ -5,13 +5,16 @@ import { RegisterPage } from '../Pages/RegisterPage'
 import { DashboardPage } from '../Pages/DashboardPage'
 import { ProtectedRoutes } from './ProtectedRoutes'
 import { DashboardProvider } from '../providers/techProvider'
+import { PublicRoutes } from './PublicRoutes'
 
 export const RoutesMain = () => {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/dashboard" element={<ProtectedRoutes />}>
+      <Route element={<PublicRoutes />}>
+        <Route path='/' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+      </Route>
+      <Route path='/dashboard' element={<ProtectedRoutes />}>
         <Route
           index
           element={

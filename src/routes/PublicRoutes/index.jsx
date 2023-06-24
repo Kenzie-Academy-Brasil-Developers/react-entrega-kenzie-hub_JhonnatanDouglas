@@ -1,7 +1,7 @@
 import { Outlet, Navigate } from 'react-router-dom'
 
-export const ProtectedRoutes = () => {
+export const PublicRoutes = () => {
   const userLogged = localStorage.getItem('@UserLogged')
 
-  return userLogged ? <Outlet /> : <Navigate to='/' />
+  return userLogged ? <Navigate to='/dashboard' /> : <Outlet />
 }

@@ -10,6 +10,7 @@ export const HeaderDefault = () => {
   const userLogout = () => {
     localStorage.removeItem('@Token')
     localStorage.removeItem('@UserId')
+    localStorage.removeItem('@UserLogged')
     navigate('/')
   }
 

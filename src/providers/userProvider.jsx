@@ -75,6 +75,8 @@ export const UserProvider = ({ children }) => {
     })
   }
 
+  const currentPath = window.location.pathname
+
   useEffect(() => {
     const loadUser = async () => {
       const token = localStorage.getItem('@Token')
@@ -88,6 +90,7 @@ export const UserProvider = ({ children }) => {
           })
           setUserData(data)
           setTechData(data.techs)
+          navigate(currentPath)
         } catch (error) {
           localStorage.removeItem('@Token')
           localStorage.removeItem('@UserId')
@@ -117,6 +120,7 @@ export const UserProvider = ({ children }) => {
 
       localStorage.setItem('@Token', data.token)
       localStorage.setItem('@UserId', data.user.id)
+      localStorage.setItem('@UserLogged', true)
 
       sucessMessageToast('Login efetuado com sucesso!', 1500)
       setIsChanged(false)
