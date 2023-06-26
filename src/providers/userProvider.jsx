@@ -121,10 +121,7 @@ export const UserProvider = ({ children }) => {
       localStorage.setItem('@Token', data.token)
       localStorage.setItem('@UserId', data.user.id)
       localStorage.setItem('@UserLogged', true)
-      localStorage.setItem(
-        '@TechCardSelected',
-        JSON.stringify({ id: 'default', title: 'default', level: 'default' })
-      )
+      localStorage.setItem('@TechCardSelected', JSON.stringify({}))
 
       sucessMessageToast('Login efetuado com sucesso!', 1500)
       setIsChanged(false)
@@ -194,7 +191,7 @@ export const UserProvider = ({ children }) => {
       {children}
 
       <ToastContainer
-        position="top-right"
+        position='top-right'
         autoClose={1300}
         hideProgressBar={false}
         newestOnTop={false}
@@ -203,7 +200,7 @@ export const UserProvider = ({ children }) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme='light'
       />
     </userContext.Provider>
   )
