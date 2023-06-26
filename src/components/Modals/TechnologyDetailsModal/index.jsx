@@ -22,6 +22,8 @@ export const StyledDetailsTechModal = () => {
     resolver: zodResolver(modalSchema),
   })
 
+  const techListStorage = JSON.parse(localStorage.getItem('@TechCardSelected'))
+
   const { deleteButtonDesabled, updateTech, deleteTech } = useContext(techContext)
 
   const {
@@ -42,9 +44,10 @@ export const StyledDetailsTechModal = () => {
   }
 
   const submit = (formData) => {
-    const { title, status } = formData
-    const formTitle = title.trim()
-    
+
+    const { status } = formData
+    const formTitle = techListStorage?.title
+
     const techInfo = {
       title: formTitle,
       status: status,
@@ -85,12 +88,10 @@ export const StyledDetailsTechModal = () => {
 
           <FormModalRegister onSubmit={handleSubmit(submit)}>
             <StyledInputLabel
+              disabled={true}  
               label='Nome'
               type='text'
-              register={register('title')}
-              placeholder='Material UI (nome da tecnologia)'
-              error={errors.title}
-            
+              placeholder={techListStorage.title}
             />
 
             <StyledModalInputSelect

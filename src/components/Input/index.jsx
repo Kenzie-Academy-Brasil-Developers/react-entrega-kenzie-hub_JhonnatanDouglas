@@ -10,11 +10,13 @@ export const StyledInputLabel = ({
   error,
   register,
   autoComplete,
+  disabled,
 }) => {
   return (
     <StyledFieldBox>
       <StyledLabel>{label}</StyledLabel>
       <StyledInput
+        disabled={disabled ? true : false}  
         type={type}
         id={id}
         placeholder={placeholder}

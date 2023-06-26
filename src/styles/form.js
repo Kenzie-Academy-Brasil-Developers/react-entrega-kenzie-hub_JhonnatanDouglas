@@ -35,6 +35,10 @@ export const InputSettings = css`
   border: 0.125rem solid var(--color-grey-2);
   border-radius: var(--border-radius-1);
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   &:focus {
     border: 0.125rem solid var(--color-grey-0);
   }

@@ -11,6 +11,7 @@ export const HeaderDefault = () => {
     localStorage.removeItem('@Token')
     localStorage.removeItem('@UserId')
     localStorage.removeItem('@UserLogged')
+    localStorage.removeItem('@TechCardSelected')
     navigate('/')
   }
 

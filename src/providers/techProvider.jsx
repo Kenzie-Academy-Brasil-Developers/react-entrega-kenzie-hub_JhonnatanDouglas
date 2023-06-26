@@ -52,8 +52,8 @@ export const DashboardProvider = ({ children }) => {
     const techId = JSON.parse(localStorage.getItem('@TechCardSelected'))
     const { id, title } = techId
 
-    const techTitle = title.toLowerCase()
-    const formTechTitle = updateFormData.title.toLowerCase()
+    const techTitle = title
+    const formTechTitle = updateFormData.title
 
     const statusTech = {
       status: updateFormData.status,
@@ -92,8 +92,8 @@ export const DashboardProvider = ({ children }) => {
     const techId = JSON.parse(localStorage.getItem('@TechCardSelected'))
     const { id, title, level } = techId
 
-    const techTitle = title.toLowerCase()
-    const formTechTitle = deleteFormData.title.toLowerCase()
+    const techTitle = title
+    const formTechTitle = deleteFormData.title
 
     if (techTitle === formTechTitle && level === deleteFormData.status) {
       const token = localStorage.getItem('@Token')
