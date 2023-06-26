@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
-import { modalSchema } from '../modalSchema'
 import { useForm } from 'react-hook-form'
 import { useContext } from 'react'
 import { userContext } from '../../../providers/userProvider'
@@ -11,6 +10,7 @@ import { StyledButton } from '../../../styles/buttons'
 import { StyledModalInputSelect } from '../ModalSelect'
 import { FormModalRegister, ModalDetailsContainer } from './styles'
 import { StyledSpan, StyledTittleH3 } from '../../../styles/typography'
+import { modalDetailsSchema } from '../modalDetailsSchema'
 
 export const StyledDetailsTechModal = () => {
   const {
@@ -19,7 +19,7 @@ export const StyledDetailsTechModal = () => {
     formState: { errors },
     reset,
   } = useForm({
-    resolver: zodResolver(modalSchema),
+    resolver: zodResolver(modalDetailsSchema),
   })
 
   const techListStorage = JSON.parse(localStorage.getItem('@TechCardSelected'))

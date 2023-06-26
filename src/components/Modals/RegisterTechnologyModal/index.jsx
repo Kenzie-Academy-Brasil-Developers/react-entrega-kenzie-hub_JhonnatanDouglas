@@ -5,12 +5,12 @@ import { useContext } from 'react'
 import { userContext } from '../../../providers/userProvider'
 import { techContext } from '../../../providers/techProvider'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { modalSchema } from '../modalSchema'
 import { ModalRegisterContainer, FormModalRegister } from './styles'
 import { StyledSpan, StyledTittleH3 } from '../../../styles/typography'
 import { StyledInputLabel } from '../../Input'
 import { StyledButton } from '../../../styles/buttons'
 import { StyledModalInputSelect } from '../ModalSelect'
+import { modalRegisterSchema } from '../modalRegisterSchema'
 
 export const StyledRegisterTechModal = () => {
   const {
@@ -19,7 +19,7 @@ export const StyledRegisterTechModal = () => {
     formState: { errors },
     reset,
   } = useForm({
-    resolver: zodResolver(modalSchema),
+    resolver: zodResolver(modalRegisterSchema),
   })
 
   const {
