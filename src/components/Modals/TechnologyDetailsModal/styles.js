@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const ModalDetailsContainer = styled.div`
   width: 100%;
@@ -29,12 +29,16 @@ export const ModalDetailsContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 1.25rem;
+    gap: 0.75rem;
     margin-top: 1.25rem;
   }
 
+  > form > div > button:first-child {
+    width: 50%;
+  }
+
   > form > div > button:last-child {
-    width: 40%;
+    width: 50%;
   }
 `
 

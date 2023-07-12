@@ -117,7 +117,7 @@ export const StyledDetailsTechModal = () => {
                   largeness='max-lg'
                   onClick={handleSaveButton}
                 >
-                  Salvar alterações
+                  Salvar
                 </StyledButton>
               )}
               {deleteButtonDesabled ? (
